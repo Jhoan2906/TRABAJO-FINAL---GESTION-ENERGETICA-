@@ -1,0 +1,383 @@
+
+/* SISTEMA DE GEMELO DIGITAL - HU-08 */
+
+:root {
+    --azul: #17365d;
+    --azul-claro: #24558a;
+    --azul-suave: #e7f0fa;
+    --fondo: #f3f6fa;
+    --blanco: #ffffff;
+    --texto: #243247;
+    --gris: #66758a;
+    --borde: #dfe6ee;
+    --verde: #16845b;
+    --rojo: #a12f2f;
+    --sombra: 0 4px 16px rgba(20, 40, 70, 0.06);
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    font-family: "Segoe UI", Arial, sans-serif;
+    background: var(--fondo);
+    color: var(--texto);
+}
+
+/* ENCABEZADO Y MENU HORIZONTAL */
+
+.encabezado {
+    background: var(--azul);
+    color: var(--blanco);
+}
+
+.encabezado-superior {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    padding: 22px 30px;
+}
+
+.encabezado h1 {
+    margin: 0 0 6px;
+    font-size: 24px;
+}
+
+.encabezado p {
+    margin: 0;
+    font-size: 14px;
+    color: #d8e5f5;
+}
+
+.etiqueta {
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    background: rgba(255, 255, 255, 0.12);
+    border-radius: 20px;
+    padding: 9px 14px;
+    font-size: 12px;
+    white-space: nowrap;
+}
+
+.menu-horizontal {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    padding: 0 24px;
+    background: #102b4c;
+}
+
+.menu-horizontal a {
+    display: inline-block;
+    padding: 15px 19px;
+    color: #d8e5f5;
+    text-decoration: none;
+    font-size: 14px;
+    border-bottom: 3px solid transparent;
+    transition: background 0.2s;
+}
+
+.menu-horizontal a:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.menu-horizontal a.activo {
+    color: white;
+    background: #24558a;
+    border-bottom-color: #a9d3ff;
+    font-weight: 600;
+}
+
+/* ESTRUCTURA GENERAL */
+
+.contenedor {
+    display: grid;
+    grid-template-columns: 245px minmax(0, 1fr);
+    min-height: calc(100vh - 145px);
+}
+
+/* MENU VERTICAL */
+
+.menu-lateral {
+    background: white;
+    border-right: 1px solid var(--borde);
+    padding: 28px 18px;
+}
+
+.menu-lateral h2 {
+    margin: 0 12px 22px;
+    color: var(--gris);
+    font-size: 15px;
+}
+
+.menu-lateral nav {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.menu-lateral nav a {
+    display: block;
+    padding: 13px 14px;
+    text-decoration: none;
+    color: var(--texto);
+    border-radius: 9px;
+    font-size: 14px;
+    transition: background 0.2s;
+}
+
+.menu-lateral nav a:hover {
+    background: #edf3f9;
+}
+
+.menu-lateral nav a.activo {
+    background: var(--azul-suave);
+    color: var(--azul);
+    font-weight: 600;
+    border-left: 4px solid var(--azul-claro);
+}
+
+.informacion {
+    margin-top: 35px;
+    padding: 15px;
+    background: #f6f8fb;
+    border-radius: 10px;
+    color: var(--gris);
+    font-size: 12px;
+    line-height: 1.6;
+}
+
+.informacion p {
+    margin: 5px 0;
+}
+
+/* CONTENIDO */
+
+.contenido-principal {
+    min-width: 0;
+    padding: 30px;
+}
+
+section {
+    scroll-margin-top: 20px;
+}
+
+.titulo-seccion {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 18px;
+    margin-bottom: 22px;
+}
+
+.titulo-seccion h2 {
+    margin: 0 0 7px;
+    font-size: 21px;
+}
+
+.titulo-seccion p {
+    margin: 0;
+    font-size: 13px;
+    color: var(--gris);
+}
+
+/* ESTADO DE CONEXION */
+
+#estado-conexion {
+    display: inline-block;
+    padding: 9px 13px;
+    border-radius: 20px;
+    background: #e9edf2;
+    color: #566579;
+    font-size: 12px;
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+#estado-conexion.conectado {
+    background: #e4f5eb;
+    color: var(--verde);
+}
+
+#estado-conexion.desconectado {
+    background: #fdeaea;
+    color: var(--rojo);
+}
+
+/* TARJETAS DE INDICADORES */
+
+.tarjetas {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 18px;
+}
+
+.tarjeta {
+    background: white;
+    border: 1px solid var(--borde);
+    border-radius: 12px;
+    padding: 24px 20px;
+    box-shadow: var(--sombra);
+}
+
+.tarjeta h3 {
+    margin: 0;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--gris);
+}
+
+.tarjeta .valor {
+    margin: 18px 0 12px;
+    font-size: 29px;
+    font-weight: 700;
+    color: var(--azul);
+    font-variant-numeric: tabular-nums;
+}
+
+.tarjeta span {
+    font-size: 12px;
+    color: var(--gris);
+}
+
+/* TABLA */
+
+.seccion-tabla {
+    margin-top: 30px;
+    padding: 25px;
+    border: 1px solid var(--borde);
+    border-radius: 12px;
+    background: white;
+    box-shadow: var(--sombra);
+}
+
+#btn-actualizar {
+    border: none;
+    border-radius: 8px;
+    padding: 11px 17px;
+    background: var(--azul-claro);
+    color: white;
+    font-family: inherit;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+#btn-actualizar:hover {
+    background: var(--azul);
+}
+
+#btn-actualizar:disabled {
+    opacity: 0.6;
+    cursor: wait;
+}
+
+a:focus-visible,
+button:focus-visible {
+    outline: 3px solid #73a9e9;
+    outline-offset: 3px;
+}
+
+.tabla-contenedor {
+    width: 100%;
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+}
+
+thead {
+    background: #f1f5f9;
+}
+
+th, td {
+    padding: 14px 12px;
+    text-align: left;
+    border-bottom: 1px solid var(--borde);
+}
+
+th {
+    color: var(--gris);
+    font-weight: 600;
+}
+
+tbody tr:hover {
+    background: #f8fbff;
+}
+
+footer {
+    margin-top: 28px;
+    font-size: 12px;
+    color: var(--gris);
+    text-align: center;
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 1100px) {
+    .tarjetas {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 700px) {
+    .encabezado-superior {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 20px;
+    }
+
+    .menu-horizontal {
+        padding: 0 10px;
+    }
+
+    .menu-horizontal a {
+        padding: 12px;
+        font-size: 13px;
+    }
+
+    .contenedor {
+        grid-template-columns: 1fr;
+    }
+
+    .menu-lateral {
+        border-right: none;
+        border-bottom: 1px solid var(--borde);
+        padding: 18px;
+    }
+
+    .menu-lateral nav {
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+
+    .informacion {
+        margin-top: 15px;
+    }
+
+    .contenido-principal {
+        padding: 18px;
+    }
+
+    .titulo-seccion {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .tarjetas {
+        grid-template-columns: 1fr;
+    }
+
+    .seccion-tabla {
+        padding: 16px;
+    }
+}

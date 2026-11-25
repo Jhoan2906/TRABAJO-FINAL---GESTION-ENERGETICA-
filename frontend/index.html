@@ -1,0 +1,354 @@
+
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Gemelo Digital | Monitoreo IoT - HU-08</title>
+
+    <!-- Hoja de estilos -->
+    <link rel="stylesheet" href="css/estilos.css">
+
+    <!-- JavaScript del monitoreo -->
+    <script src="js/monitoreo.js" defer></script>
+</head>
+
+<body>
+
+    <!-- ========================================
+         ENCABEZADO Y MENU HORIZONTAL
+         ======================================== -->
+
+    <header class="encabezado">
+
+        <div class="encabezado-superior">
+
+            <div>
+                <h1>Sistema de Gemelo Digital</h1>
+
+                <p>
+                    Gestión y Optimización Energética
+                    de Edificios Públicos
+                </p>
+            </div>
+
+            <span class="etiqueta">
+                Prototipo simulado · HU-08
+            </span>
+
+        </div>
+
+        <!-- MENU HORIZONTAL SUPERIOR -->
+
+        <nav class="menu-horizontal"
+             aria-label="Navegación superior">
+
+            <a href="#monitoreo" class="activo">
+                Monitoreo IoT
+            </a>
+
+            <a href="#mediciones">
+                Últimas mediciones
+            </a>
+
+        </nav>
+
+    </header>
+
+    <!-- ========================================
+         ESTRUCTURA GENERAL
+         ======================================== -->
+
+    <div class="contenedor">
+
+        <!-- ====================================
+             MENU VERTICAL IZQUIERDO
+             ==================================== -->
+
+        <aside class="menu-lateral">
+
+            <h2>Panel de control</h2>
+
+            <nav aria-label="Navegación lateral">
+
+                <a href="#monitoreo" class="activo">
+                    Monitoreo IoT
+                </a>
+
+                <a href="#mediciones">
+                    Últimas mediciones
+                </a>
+
+            </nav>
+
+            <!-- INFORMACION DEL GEMELO DIGITAL -->
+
+            <div class="informacion">
+
+                <p>
+                    <strong>Gemelo digital:</strong>
+                    TWIN001
+                </p>
+
+                <p>
+                    <strong>Entorno:</strong>
+                    Simulado
+                </p>
+
+                <p>
+                    <strong>Región:</strong>
+                    Junín, Perú
+                </p>
+
+                <p>
+                    <strong>Base de datos:</strong>
+                    SQL Server
+                </p>
+
+            </div>
+
+        </aside>
+
+        <!-- ====================================
+             CONTENIDO PRINCIPAL
+             ==================================== -->
+
+        <main class="contenido-principal">
+
+            <!-- ================================
+                 SECCION 1: MONITOREO IOT
+                 ================================ -->
+
+            <section id="monitoreo"
+                     aria-labelledby="titulo-monitoreo">
+
+                <div class="titulo-seccion">
+
+                    <div>
+
+                        <h2 id="titulo-monitoreo">
+                            Monitoreo energético y ambiental
+                        </h2>
+
+                        <p>
+                            Lecturas del gemelo digital
+                            generadas mediante sensores IoT
+                            simulados y almacenadas en SQL Server.
+                        </p>
+
+                    </div>
+
+                    <!-- ESTADO DE LA API -->
+
+                    <span id="estado-conexion"
+                          role="status"
+                          aria-live="polite">
+
+                        Pendiente de conexión
+
+                    </span>
+
+                </div>
+
+                <!-- ============================
+                     TARJETAS DE INDICADORES
+                     ============================ -->
+
+                <div class="tarjetas">
+
+                    <!-- TEMPERATURA -->
+
+                    <article class="tarjeta">
+
+                        <h3>Temperatura</h3>
+
+                        <p class="valor"
+                           id="temperatura">
+                            --
+                        </p>
+
+                        <span>
+                            °C · Sensor SEN001 · EQ001
+                        </span>
+
+                    </article>
+
+                    <!-- HUMEDAD RELATIVA -->
+
+                    <article class="tarjeta">
+
+                        <h3>Humedad relativa</h3>
+
+                        <p class="valor"
+                           id="humedad">
+                            --
+                        </p>
+
+                        <span>
+                            % · Sensor SEN002 · EQ001
+                        </span>
+
+                    </article>
+
+                    <!-- POTENCIA ELECTRICA -->
+
+                    <article class="tarjeta">
+
+                        <h3>Potencia eléctrica</h3>
+
+                        <p class="valor"
+                           id="potencia">
+                            --
+                        </p>
+
+                        <span>
+                            kW · Sensor SEN003 · EQ003
+                        </span>
+
+                    </article>
+
+                    <!-- ENERGIA ELECTRICA -->
+
+                    <article class="tarjeta">
+
+                        <h3>Energía del intervalo</h3>
+
+                        <p class="valor"
+                           id="energia">
+                            --
+                        </p>
+
+                        <span>
+                            kWh · Sensor SEN004 · EQ003
+                        </span>
+
+                    </article>
+
+                </div>
+
+            </section>
+
+            <!-- ================================
+                 SECCION 2: ULTIMAS MEDICIONES
+                 ================================ -->
+
+            <section id="mediciones"
+                     class="seccion-tabla"
+                     aria-labelledby="titulo-mediciones">
+
+                <div class="titulo-seccion">
+
+                    <div>
+
+                        <h2 id="titulo-mediciones">
+                            Últimas mediciones IoT
+                        </h2>
+
+                        <p>
+                            Consulta de los registros más
+                            recientes almacenados en SQL Server.
+                        </p>
+
+                    </div>
+
+                    <!-- BOTON PARA ACTUALIZAR -->
+
+                    <button id="btn-actualizar"
+                            type="button">
+
+                        Actualizar datos
+
+                    </button>
+
+                </div>
+
+                <!-- TABLA DE MEDICIONES -->
+
+                <div class="tabla-contenedor">
+
+                    <table>
+
+                        <thead>
+
+                            <tr>
+
+                                <th scope="col">
+                                    Fecha UTC
+                                </th>
+
+                                <th scope="col">
+                                    Sensor
+                                </th>
+
+                                <th scope="col">
+                                    Variable
+                                </th>
+
+                                <th scope="col">
+                                    Valor
+                                </th>
+
+                                <th scope="col">
+                                    Unidad
+                                </th>
+
+                                <th scope="col">
+                                    Equipo
+                                </th>
+
+                            </tr>
+
+                        </thead>
+
+                        <!--
+                            JavaScript agregará aquí
+                            las mediciones del backend.
+                        -->
+
+                        <tbody id="tabla-mediciones">
+
+                            <tr>
+
+                                <td colspan="6">
+                                    Esperando mediciones...
+                                </td>
+
+                            </tr>
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+            </section>
+
+            <!-- ================================
+                 PIE DE PAGINA
+                 ================================ -->
+
+            <footer>
+
+                <p>
+                    Sistema de Gemelo Digital para la
+                    Gestión y Optimización Energética
+                    de Edificios Públicos
+                </p>
+
+                <p>
+                    Prototipo académico simulado · HU-08
+                    · Junín, Perú
+                </p>
+
+            </footer>
+
+        </main>
+
+    </div>
+
+</body>
+</html>
